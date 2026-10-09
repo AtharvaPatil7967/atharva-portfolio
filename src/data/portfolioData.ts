@@ -37,7 +37,8 @@ export const profileData: DeveloperProfile = {
   ],
   socials: {
     github: 'https://github.com/AtharvaPatil7967',
-    linkedin: 'https://linkedin.com/in/REPLACE_WITH_YOUR_LINKEDIN_SLUG', // Update with your actual LinkedIn profile
+    linkedin: 'https://www.linkedin.com/in/atharva-patil-732055374/',
+    strava: 'https://www.strava.com/athletes/193759104',
     email: 'atharvapatil2179@gmail.com',
     phone: '8275580794',
     phoneFormatted: '+91 82755 80794',
@@ -57,6 +58,7 @@ export const navLinks = [
   { label: 'Achievements', href: '#achievements' },
   { label: 'Research', href: '#research' },
   { label: 'Education', href: '#education' },
+  { label: 'Beyond Code', href: '#beyond-code' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -484,4 +486,72 @@ export const educationData: Education = {
     'Active participant in regional and national hackathons and data analytics competitions.',
     'Strong mathematical foundations in linear algebra, multivariable calculus, probability, and statistics.',
   ],
+};
+
+/* ==========================================================================
+   BEYOND THE CODE (HABITS, RUNNING, RESILIENCE)
+   ========================================================================== */
+export const beyondCodeData = {
+  sectionId: 'beyond-code',
+  title: 'Beyond the Code',
+  subtitle: 'Building better habits. Embracing challenges. Becoming better every day.',
+  intro:
+    'Beyond building data-driven and AI-powered applications, I believe personal growth comes from the habits we practice every day. Reading helps me learn, running challenges me to stay consistent, and setbacks remind me to keep moving forward.',
+  themes: [
+    { label: 'Read', subtitle: 'Continuous Learning', accent: 'amber' },
+    { label: 'Run', subtitle: 'Physical Discipline', accent: 'orange' },
+    { label: 'Rise Again', subtitle: 'Unwavering Resilience', accent: 'emerald' },
+  ],
+  reading: {
+    title: 'Reading & Personal Growth',
+    badge: 'READ • LEARN • IMPROVE',
+    bookTitle: 'Atomic Habits',
+    bookAuthor: 'James Clear',
+    quote:
+      'Small, consistent improvements can create meaningful change over time. Reading about habits and personal growth reinforces the importance of consistency, intentional action, and continuous learning.',
+    primaryImage: '/images/personal/atomic-habits-reading.jpg',
+    primaryImageAlt:
+      'Atomic Habits book by James Clear resting on a wooden surface beside tea and glasses',
+    secondaryImage: '/images/personal/habits-and-identity.jpg',
+    secondaryImageAlt:
+      'Journal scrap quotation: Good habits can make rational sense, but if they conflict with your identity, you will fail to put them into action.',
+  },
+  running: {
+    title: 'Running — One Step at a Time',
+    badge: 'CONSISTENCY • ENDURANCE • DISCIPLINE',
+    quote:
+      'Running is more than physical activity. It is a way to practice consistency, patience, and showing up even when progress feels slow.',
+    stravaUrl: 'https://www.strava.com/athletes/193759104',
+    buttonText: 'Follow My Runs on Strava',
+    primaryImage: '/images/personal/running-mindset.jpg',
+    primaryImageAlt:
+      'Running motivation: I run because it proves to me, again and again, that I’m capable of more than I imagined.',
+  },
+  mindset: {
+    title: 'The Never-Give-Up Mindset',
+    badge: 'PERSEVERANCE • ADAPTATION • RESILIENCE',
+    motto: '1% better every day.',
+    quote:
+      'I believe progress is not about being perfect every day. It is about learning from setbacks, staying consistent, and finding the determination to begin again. Every small step forward matters.',
+    principles: [
+      {
+        title: 'Consistency over perfection',
+        desc: 'Showing up repeatedly with focused effort produces compound results.',
+      },
+      {
+        title: 'Learn, adapt, and continue',
+        desc: 'Treat obstacles as feedback loops to recalibrate and strengthen the approach.',
+      },
+      {
+        title: 'Never let one setback define the journey',
+        desc: 'Resilience is measured by the determination to stand up, refocus, and move forward.',
+      },
+    ],
+    primaryImage: '/images/personal/never-give-up.png',
+    primaryImageAlt:
+      'Resilience typography: Fall seven times, stand up eight.',
+    supportingImage: '/images/personal/one-percent-better.jpg',
+    supportingImageAlt:
+      'Chess pawn casting the shadow of a king, symbolizing compounding daily improvement',
+  },
 };

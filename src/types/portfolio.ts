@@ -65,6 +65,7 @@ export interface DeveloperProfile {
   socials: {
     github: string;
     linkedin: string;
+    strava: string;
     email: string;
     phone: string;
     phoneFormatted: string;

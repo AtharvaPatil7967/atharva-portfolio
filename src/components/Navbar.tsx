@@ -6,8 +6,6 @@ import {
   FileText,
   Menu,
   X,
-  Sparkles,
-  ExternalLink,
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
 
@@ -69,7 +67,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-1.5 backdrop-blur-sm">
+          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 bg-white/[0.03] border border-white/[0.06] rounded-full px-2.5 xl:px-3 py-1.5 backdrop-blur-sm">
             {navLinks.map((link) => {
               const id = link.href.substring(1);
               const isActive = activeSection === id;
@@ -77,7 +75,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-200 ${
+                  className={`text-[11px] xl:text-xs font-medium px-2.5 xl:px-3 py-1 rounded-full transition-all duration-200 ${
                     isActive
                       ? 'bg-sky-500/15 text-sky-400 border border-sky-500/30'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]'
@@ -107,7 +105,7 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-slate-400 hover:text-sky-400 hover:bg-sky-500/10 border border-transparent hover:border-sky-500/20 transition-all"
-              aria-label="LinkedIn Profile (Placeholder)"
+              aria-label="LinkedIn Profile"
               title="LinkedIn Profile"
             >
               <LinkedinIcon className="w-4 h-4" />

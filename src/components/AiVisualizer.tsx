@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { Cpu, Activity, Sparkles, Terminal, CheckCircle2 } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { Cpu, CheckCircle2 } from 'lucide-react';
 
 interface Node {
   id: string;
@@ -19,8 +19,6 @@ interface Node {
 export default function AiVisualizer() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [activeNode, setActiveNode] = useState<string>('Agentic Pipeline');
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -226,8 +224,6 @@ export default function AiVisualizer() {
   return (
     <div
       ref={containerRef}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className="relative w-full h-[380px] sm:h-[440px] rounded-2xl border border-white/[0.08] bg-[#090d16]/80 backdrop-blur-xl overflow-hidden shadow-2xl shadow-black/80"
     >
       {/* Background radial highlight */}

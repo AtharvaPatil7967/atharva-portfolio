@@ -1,13 +1,14 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { profileData } from '@/data/portfolioData';
 import AiVisualizer from '@/components/AiVisualizer';
+import MagneticButton from '@/components/motion/MagneticButton';
 import {
   ArrowDown,
   ArrowRight,
   FileText,
-  Sparkles,
   Award,
   GraduationCap,
   TrendingUp,
@@ -15,14 +16,47 @@ import {
 import { GithubIcon } from '@/components/icons/BrandIcons';
 
 export default function Hero() {
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  const isFinePointerRef = useRef(false);
+
+  useEffect(() => {
+    isFinePointerRef.current =
+      window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLElement>) => {
+    if (!isFinePointerRef.current) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setParallax({ x: Math.round(x * 16), y: Math.round(y * 16) });
+  };
+
+  const handlePointerLeave = () => {
+    setParallax({ x: 0, y: 0 });
+  };
+
   return (
     <section
       id="hero"
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
       className="relative min-h-screen pt-28 pb-16 lg:pt-36 lg:pb-24 flex items-center overflow-hidden"
     >
-      {/* Background radial ambient lights */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[300px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none" />
+      {/* Background radial ambient lights with subtle parallax offset */}
+      <div
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none transition-transform duration-300 ease-out will-change-transform"
+        style={{
+          transform: `translate3d(calc(-50% + ${parallax.x * 0.8}px), calc(-50% + ${parallax.y * 0.8}px), 0)`,
+        }}
+      />
+      <div
+        className="absolute top-1/3 right-10 w-[400px] h-[300px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none transition-transform duration-300 ease-out will-change-transform"
+        style={{
+          transform: `translate3d(${-parallax.x * 0.6}px, ${-parallax.y * 0.6}px, 0)`,
+        }}
+      />
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -33,8 +67,8 @@ export default function Hero() {
             <div className="flex items-center gap-4 sm:gap-5 pb-1">
               <div className="relative group shrink-0">
                 {/* Subtle cyan & emerald accent ring */}
-                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-sky-400 via-indigo-500 to-emerald-400 opacity-70 blur-[1px] group-hover:opacity-100 transition duration-300" />
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-white/20 bg-[#090d16] shadow-xl shadow-sky-500/10">
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-sky-400 via-indigo-500 to-emerald-400 opacity-70 blur-[1px] group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-white/20 bg-[#090d16] shadow-xl shadow-sky-500/10 transition-transform duration-300 group-hover:scale-[1.02]">
                   <Image
                     src="/images/profile.jpg"
                     alt="Portrait of Atharva Patil"
@@ -53,7 +87,7 @@ export default function Hero() {
 
               <div className="space-y-2">
                 {/* Status / Availability badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sky-500/25 bg-sky-500/[0.08] text-sky-400 text-xs font-mono tracking-wide shadow-sm">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sky-500/25 bg-sky-500/[0.08] text-sky-400 text-xs font-mono tracking-wide shadow-sm hover:border-sky-500/40 transition-colors">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span>AI &amp; Data Science Student • Class of 2027</span>
                 </div>
@@ -68,7 +102,7 @@ export default function Hero() {
             <div className="space-y-3">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
                 AI &amp; Data Science{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-emerald-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-emerald-400 animate-gradient-text">
                   Engineer
                 </span>
               </h1>
@@ -84,7 +118,7 @@ export default function Hero() {
 
             {/* Quick Metrics Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 pb-2 max-w-xl">
-              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-sm">
+              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-sm hover:border-sky-500/30 transition-all duration-200">
                 <div className="text-xs text-slate-400 font-mono flex items-center gap-1.5 mb-1">
                   <GraduationCap className="w-3.5 h-3.5 text-sky-400" />
                   <span>Academics</span>
@@ -95,7 +129,7 @@ export default function Hero() {
                 <div className="text-[11px] text-slate-500">MMCOE, Pune</div>
               </div>
 
-              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-sm">
+              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-sm hover:border-emerald-500/30 transition-all duration-200">
                 <div className="text-xs text-slate-400 font-mono flex items-center gap-1.5 mb-1">
                   <Award className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Competition</span>
@@ -106,7 +140,7 @@ export default function Hero() {
                 <div className="text-[11px] text-slate-500">2x 1st, 2x 2nd Place</div>
               </div>
 
-              <div className="col-span-2 sm:col-span-1 p-3 rounded-xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-sm">
+              <div className="col-span-2 sm:col-span-1 p-3 rounded-xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-sm hover:border-indigo-500/30 transition-all duration-200">
                 <div className="text-xs text-slate-400 font-mono flex items-center gap-1.5 mb-1">
                   <TrendingUp className="w-3.5 h-3.5 text-indigo-400" />
                   <span>Research Focus</span>
@@ -118,37 +152,43 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* CTAs */}
+            {/* CTAs with Magnetic Effect */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5"
-              >
-                <span>View Projects</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <MagneticButton strength={4}>
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-medium text-sm transition-all duration-200 shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5"
+                >
+                  <span>View Projects</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </MagneticButton>
 
-              <a
-                href={profileData.socials.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Download Atharva Patil Resume (PDF)"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 hover:text-white font-medium text-sm border border-white/[0.12] transition-all duration-200 hover:-translate-y-0.5"
-              >
-                <FileText className="w-4 h-4 text-sky-400" />
-                <span>Download Resume</span>
-              </a>
+              <MagneticButton strength={4}>
+                <a
+                  href={profileData.socials.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Download Atharva Patil Resume (PDF)"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 hover:text-white font-medium text-sm border border-white/[0.12] transition-all duration-200 hover:-translate-y-0.5"
+                >
+                  <FileText className="w-4 h-4 text-sky-400" />
+                  <span>Download Resume</span>
+                </a>
+              </MagneticButton>
 
-              <a
-                href={profileData.socials.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white font-medium text-sm border border-white/[0.08] transition-all duration-200"
-                aria-label="GitHub Profile"
-              >
-                <GithubIcon className="w-4 h-4" />
-                <span className="hidden sm:inline">GitHub</span>
-              </a>
+              <MagneticButton strength={3}>
+                <a
+                  href={profileData.socials.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] text-slate-300 hover:text-white font-medium text-sm border border-white/[0.08] transition-all duration-200"
+                  aria-label="GitHub Profile"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                  <span className="hidden sm:inline">GitHub</span>
+                </a>
+              </MagneticButton>
             </div>
           </div>
 

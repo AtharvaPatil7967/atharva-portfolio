@@ -1,6 +1,6 @@
 import { profileData } from '@/data/portfolioData';
 import { Mail, FileText, ArrowUp } from 'lucide-react';
-import { GithubIcon, LinkedinIcon } from '@/components/icons/BrandIcons';
+import { GithubIcon, LinkedinIcon, StravaIcon } from '@/components/icons/BrandIcons';
 
 export default function Footer() {
   return (
@@ -42,6 +42,17 @@ export default function Footer() {
               title="LinkedIn"
             >
               <LinkedinIcon className="w-4 h-4" />
+            </a>
+
+            <a
+              href={profileData.socials.strava}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg bg-white/[0.03] text-slate-400 hover:text-orange-400 hover:bg-white/[0.08] transition-colors"
+              aria-label="Strava Profile"
+              title="Strava"
+            >
+              <StravaIcon className="w-4 h-4" />
             </a>
 
             <a

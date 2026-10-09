@@ -1,3 +1,4 @@
+import CursorGlow from '@/components/motion/CursorGlow';
 import ScrollProgress from '@/components/ScrollProgress';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
@@ -8,12 +9,16 @@ import CodingProfiles from '@/components/CodingProfiles';
 import Achievements from '@/components/Achievements';
 import Research from '@/components/Research';
 import Education from '@/components/Education';
+import BeyondCode from '@/components/BeyondCode';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
     <>
+      {/* Ambient Cursor Following Glow (Desktop only, passive) */}
+      <CursorGlow />
+
       {/* Top Reading Progress Bar */}
       <ScrollProgress />
 
@@ -40,17 +45,20 @@ export default function Home() {
         {/* Section 6: Achievements & Honors */}
         <Achievements />
 
-        {/* Section 6: Research & Advanced AI (FARE) */}
+        {/* Section 7: Research & Advanced AI (FARE) */}
         <Research />
 
-        {/* Section 7: Formal Education */}
+        {/* Section 8: Formal Education */}
         <Education />
 
-        {/* Section 8: Final CTA & Contact Form */}
+        {/* Section 9: Personal Habits, Running & Resilience */}
+        <BeyondCode />
+
+        {/* Section 10: Final CTA & Contact Form */}
         <Contact />
       </main>
 
-      {/* Section 9: Footer */}
+      {/* Footer */}
       <Footer />
     </>
   );
