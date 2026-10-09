@@ -66,8 +66,19 @@ export interface DeveloperProfile {
     github: string;
     linkedin: string;
     email: string;
+    phone: string;
+    phoneFormatted: string;
     resume: string;
   };
+}
+
+export interface CodingProfile {
+  name: string;
+  url: string;
+  buttonText: string;
+  description: string;
+  badge?: string;
+  icon: string;
 }
 
 export interface ResearchDirection {

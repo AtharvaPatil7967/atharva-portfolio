@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
+import CodingProfiles from '@/components/CodingProfiles';
 import Achievements from '@/components/Achievements';
 import Research from '@/components/Research';
 import Education from '@/components/Education';
@@ -33,7 +34,10 @@ export default function Home() {
         {/* Section 4: Projects Showcase & Interactive Filter */}
         <Projects />
 
-        {/* Section 5: Achievements & Honors */}
+        {/* Section 5: Coding Platform Profiles */}
+        <CodingProfiles />
+
+        {/* Section 6: Achievements & Honors */}
         <Achievements />
 
         {/* Section 6: Research & Advanced AI (FARE) */}

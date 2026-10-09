@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { profileData } from '@/data/portfolioData';
 import {
   Mail,
+  Phone,
+  MapPin,
   FileText,
   Send,
   Sparkles,
@@ -23,12 +25,19 @@ export default function Contact() {
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'demo'>('idle');
-  const [copied, setCopied] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(profileData.socials.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(profileData.socials.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -83,11 +92,13 @@ export default function Contact() {
                     Email
                   </span>
                   <button
+                    type="button"
                     onClick={handleCopyEmail}
-                    className="inline-flex items-center gap-1 text-[11px] font-mono text-sky-400 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1 text-[11px] font-mono text-sky-400 hover:text-white transition-colors cursor-pointer"
                     title="Copy email to clipboard"
+                    aria-label="Copy email address"
                   >
-                    {copied ? (
+                    {copiedEmail ? (
                       <>
                         <Check className="w-3 h-3 text-emerald-400" />
                         <span className="text-emerald-400">Copied</span>
@@ -102,12 +113,64 @@ export default function Contact() {
                 </div>
                 <a
                   href={`mailto:${profileData.socials.email}`}
+                  aria-label={`Email Atharva Patil at ${profileData.socials.email}`}
                   className="text-sm font-mono text-slate-200 hover:text-sky-300 transition-colors block break-all font-medium"
                 >
                   {profileData.socials.email}
                 </a>
                 <span className="text-[10px] text-slate-500 block">
-                  Click to open default mail client or replace in config
+                  Click to open default mail client
+                </span>
+              </div>
+
+              {/* Phone Card */}
+              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-emerald-500/30 transition-all space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-mono text-slate-400 flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                    Phone / Call
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleCopyPhone}
+                    className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:text-white transition-colors cursor-pointer"
+                    title="Copy phone number to clipboard"
+                    aria-label="Copy phone number"
+                  >
+                    {copiedPhone ? (
+                      <>
+                        <Check className="w-3 h-3 text-emerald-400" />
+                        <span className="text-emerald-400">Copied</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+                <a
+                  href={`tel:+91${profileData.socials.phone}`}
+                  aria-label="Call Atharva Patil"
+                  className="text-sm font-mono text-slate-200 hover:text-emerald-300 transition-colors block font-medium"
+                >
+                  {profileData.socials.phoneFormatted}
+                </a>
+                <span className="text-[10px] text-slate-500 block">
+                  Click to dial directly on mobile devices
+                </span>
+              </div>
+
+              {/* Location & Availability Badge */}
+              <div className="px-4 py-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] flex items-center justify-between text-xs font-mono text-slate-400">
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-indigo-400" />
+                  <span>{profileData.location}</span>
+                </span>
+                <span className="text-[11px] text-emerald-400 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Open to Opportunities
                 </span>
               </div>
 

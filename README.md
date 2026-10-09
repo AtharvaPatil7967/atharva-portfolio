@@ -49,14 +49,15 @@ Portofolio/
 │   │   └── page.tsx         # Main portfolio assembly page
 │   ├── components/
 │   │   ├── icons/
-│   │   │   └── BrandIcons.tsx   # Pixel-perfect SVG icons for GitHub & LinkedIn
+│   │   │   └── BrandIcons.tsx   # Pixel-perfect SVG icons for GitHub, LinkedIn, LeetCode, CodeChef & Code360
 │   │   ├── About.tsx            # Technical background, competency pillars & recruiter info panel
 │   │   ├── Achievements.tsx     # Hackathons & competitions showcase (HackX, Insight Innovator, etc.)
 │   │   ├── AiVisualizer.tsx     # High-performance interactive AI data & agent node canvas
-│   │   ├── Contact.tsx          # Direct contact channels & interactive contact form UI
+│   │   ├── CodingProfiles.tsx   # Coding platform profiles (LeetCode, CodeChef, Code360 by Naukri)
+│   │   ├── Contact.tsx          # Direct contact channels (Email, Phone, Location) & form UI
 │   │   ├── Education.tsx        # MMCOE Pune academic credentials & coursework highlights
 │   │   ├── Footer.tsx           # Minimal copyright, quick links & back-to-top button
-│   │   ├── Hero.tsx             # First-screen hero, headline, intro quote, metrics & CTAs
+│   │   ├── Hero.tsx             # First-screen hero, headshot portrait, metrics & CTAs
 │   │   ├── Navbar.tsx           # Sticky glassmorphic navbar with active section spy & mobile drawer
 │   │   ├── ProjectModal.tsx     # Deep-dive system architecture modal for projects
 │   │   ├── Projects.tsx         # Filterable showcase with large project cards
@@ -64,7 +65,7 @@ Portofolio/
 │   │   ├── ScrollProgress.tsx   # Top reading progress indicator
 │   │   └── Skills.tsx           # Categorized technical competencies with search filter
 │   ├── data/
-│   │   └── portfolioData.ts     # Centralized, typed configuration for all profile data & links
+│   │   └── portfolioData.ts     # Centralized, typed configuration for all profile data, coding profiles & links
 │   └── types/
 │       └── portfolio.ts         # TypeScript interfaces and type definitions
 ├── package.json
@@ -76,18 +77,22 @@ Portofolio/
 
 ## ⚙️ Updating Your Personal Links & Placeholders
 
-All profile data, links, and project repositories are centralized in **`src/data/portfolioData.ts`**. You do not need to hunt through components to change links.
+All profile data, contact details, coding profiles, and project repositories are centralized in **`src/data/portfolioData.ts`**.
 
-### 1. Social & Contact Placeholders:
-Open [`src/data/portfolioData.ts`](file:///d:/Portofolio/src/data/portfolioData.ts) and replace the placeholders:
+### 1. Contact & Social Configuration:
 ```typescript
 socials: {
   github: 'https://github.com/AtharvaPatil7967',
-  linkedin: 'https://linkedin.com/in/YOUR_ACTUAL_SLUG',     // <-- Replace here
-  email: 'your.actual.email@example.com',                    // <-- Replace here
-  resume: '/resume.pdf',                                     // <-- Drop resume.pdf into /public
+  linkedin: 'https://linkedin.com/in/REPLACE_WITH_YOUR_LINKEDIN_SLUG', // <-- Replace with your LinkedIn slug
+  email: 'atharvapatil2179@gmail.com',
+  phone: '8275580794',
+  phoneFormatted: '+91 82755 80794',
+  resume: '/resume.pdf',
 }
 ```
+
+### 2. Coding Platform Profiles:
+The coding profiles for **LeetCode**, **CodeChef**, and **Code360 by Naukri** are configured in `codingProfilesData` inside [`src/data/portfolioData.ts`](file:///d:/Portofolio/src/data/portfolioData.ts).
 
 ### 2. Resume File:
 Drop your official resume PDF named `resume.pdf` into the `public/` directory (replacing the temporary `public/resume.pdf` placeholder).

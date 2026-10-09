@@ -31,3 +31,46 @@ export function LinkedinIcon({ className = 'w-4 h-4' }: { className?: string }) 
     </svg>
   );
 }
+
+export function LeetCodeIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.874 5.874 0 0 0 .749 1.839 5.617 5.617 0 0 0 2.124 1.954 5.766 5.766 0 0 0 2.686.657 5.787 5.787 0 0 0 2.603-.615 5.626 5.626 0 0 0 2.062-1.802l6.708-7.18a1.374 1.374 0 0 0-.02-1.884 1.374 1.374 0 0 0-1.885-.02l-6.708 7.18a3.125 3.125 0 0 1-1.146 1.001 3.216 3.216 0 0 1-1.447.342 3.204 3.204 0 0 1-1.493-.365 3.123 3.123 0 0 1-1.18-1.085 3.264 3.264 0 0 1-.416-1.022 3.072 3.072 0 0 1-.035-1.313 2.926 2.926 0 0 1 .672-1.17l3.854-4.125 4.805-5.146a1.374 1.374 0 0 0-.416-2.186zM9.615 10.973a1.375 1.375 0 0 0-1.375 1.375v.006a1.375 1.375 0 0 0 1.375 1.375h10.457a1.375 1.375 0 0 0 1.375-1.375v-.006a1.375 1.375 0 0 0-1.375-1.375H9.615z" />
+    </svg>
+  );
+}
+
+export function CodeChefIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16.93V17h-2v1.93C7.05 18.44 4 14.85 4 12c0-.4.04-.79.1-1.18l2.12.71c-.14.15-.22.36-.22.58 0 .44.36.8.8.8.18 0 .34-.06.47-.16l1.24.41c-.01.1-.01.21-.01.32 0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5c0-.11 0-.22-.01-.32l1.24-.41c.13.1.29.16.47.16.44 0 .8-.36.8-.8 0-.22-.08-.43-.22-.58l2.12-.71c.06.39.1.78.1 1.18 0 2.85-3.05 6.44-7 6.93zM8.5 11c-.83 0-1.5-.67-1.5-1.5S7.67 8 8.5 8s1.5.67 1.5 1.5S9.33 11 8.5 11zm7 0c-.83 0-1.5-.67-1.5-1.5S14.67 8 15.5 8s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+    </svg>
+  );
+}
+
+export function Code360Icon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <circle cx="12" cy="12" r="3" fill="currentColor" />
+    </svg>
+  );
+}

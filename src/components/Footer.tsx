@@ -47,8 +47,8 @@ export default function Footer() {
             <a
               href={`mailto:${profileData.socials.email}`}
               className="p-2 rounded-lg bg-white/[0.03] text-slate-400 hover:text-sky-400 hover:bg-white/[0.08] transition-colors"
-              aria-label="Email"
-              title="Email"
+              aria-label="Email Atharva Patil"
+              title={profileData.socials.email}
             >
               <Mail className="w-4 h-4" />
             </a>

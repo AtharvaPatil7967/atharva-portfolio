@@ -5,11 +5,11 @@ import {
   Achievement,
   Education,
   ResearchDirection,
+  CodingProfile,
 } from '@/types/portfolio';
 
 /* ==========================================================================
-   DEVELOPER CONFIGURATION & SOCIAL PLACEHOLDERS
-   Replace any placeholder values below with your verified details.
+   DEVELOPER CONFIGURATION & CONTACT DETAILS
    ========================================================================== */
 export const profileData: DeveloperProfile = {
   name: 'Atharva Patil',
@@ -37,12 +37,11 @@ export const profileData: DeveloperProfile = {
   ],
   socials: {
     github: 'https://github.com/AtharvaPatil7967',
-    /* ------------------------------------------------------------------------
-       PLACEHOLDERS: Update with your personal URLs when ready
-       ------------------------------------------------------------------------ */
-    linkedin: 'https://linkedin.com/in/REPLACE_WITH_YOUR_LINKEDIN_SLUG',
-    email: 'atharva.patil.dev@placeholder.com', // Replace with your real email address
-    resume: '/resume.pdf', // Place your resume.pdf inside the /public folder
+    linkedin: 'https://linkedin.com/in/REPLACE_WITH_YOUR_LINKEDIN_SLUG', // Update with your actual LinkedIn profile
+    email: 'atharvapatil2179@gmail.com',
+    phone: '8275580794',
+    phoneFormatted: '+91 82755 80794',
+    resume: '/resume.pdf',
   },
 };
 
@@ -54,10 +53,44 @@ export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Coding Profiles', href: '#coding-profiles' },
   { label: 'Achievements', href: '#achievements' },
   { label: 'Research', href: '#research' },
   { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
+];
+
+/* ==========================================================================
+   CODING PLATFORM PROFILES
+   ========================================================================== */
+export const codingProfilesData: CodingProfile[] = [
+  {
+    name: 'LeetCode',
+    url: 'https://leetcode.com/u/atharva1807/',
+    buttonText: 'View LeetCode Profile',
+    description:
+      'Practice data structures, algorithms, and coding interview problems.',
+    badge: 'Algorithms & Data Structures',
+    icon: 'LeetCode',
+  },
+  {
+    name: 'CodeChef',
+    url: 'https://www.codechef.com/users/drove_fury_93',
+    buttonText: 'View CodeChef Profile',
+    description:
+      'Explore competitive programming and algorithmic problem-solving.',
+    badge: 'Competitive Programming',
+    icon: 'CodeChef',
+  },
+  {
+    name: 'Code360 by Naukri',
+    url: 'https://www.naukri.com/code360/profile/268845f4-9898-4906-8c6c-0c7556fd4610',
+    buttonText: 'View Code360 Profile',
+    description:
+      'Explore coding practice and programming interview preparation.',
+    badge: 'Interview Preparation',
+    icon: 'Code360',
+  },
 ];
 
 /* ==========================================================================
