@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { profileData } from '@/data/portfolioData';
 import AiVisualizer from '@/components/AiVisualizer';
 import {
@@ -28,17 +29,43 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Text & CTAs (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Status / Availability badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/25 bg-sky-500/[0.08] text-sky-400 text-xs font-mono tracking-wide shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>AI &amp; Data Science Student • Class of 2027</span>
+            {/* Header: Profile Photo, Status Badge & Greeting */}
+            <div className="flex items-center gap-4 sm:gap-5 pb-1">
+              <div className="relative group shrink-0">
+                {/* Subtle cyan & emerald accent ring */}
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-sky-400 via-indigo-500 to-emerald-400 opacity-70 blur-[1px] group-hover:opacity-100 transition duration-300" />
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-white/20 bg-[#090d16] shadow-xl shadow-sky-500/10">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt="Portrait of Atharva Patil"
+                    width={96}
+                    height={96}
+                    priority
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                {/* Active status pip */}
+                <span
+                  className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-[#07090e] shadow-sm shadow-emerald-500/50"
+                  title="Available for Opportunities"
+                />
+              </div>
+
+              <div className="space-y-2">
+                {/* Status / Availability badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-sky-500/25 bg-sky-500/[0.08] text-sky-400 text-xs font-mono tracking-wide shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>AI &amp; Data Science Student • Class of 2027</span>
+                </div>
+
+                <div className="text-base sm:text-lg font-medium text-slate-300">
+                  Hi, I&apos;m <span className="text-white font-semibold">{profileData.name}</span>
+                </div>
+              </div>
             </div>
 
-            {/* Greeting & Headline */}
+            {/* Headline */}
             <div className="space-y-3">
-              <div className="text-base sm:text-lg font-medium text-slate-300">
-                Hi, I&apos;m <span className="text-white font-semibold">{profileData.name}</span>
-              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
                 AI &amp; Data Science{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-300 to-emerald-400">
@@ -105,6 +132,7 @@ export default function Hero() {
                 href={profileData.socials.resume}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Download Atharva Patil Resume (PDF)"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 hover:text-white font-medium text-sm border border-white/[0.12] transition-all duration-200 hover:-translate-y-0.5"
               >
                 <FileText className="w-4 h-4 text-sky-400" />

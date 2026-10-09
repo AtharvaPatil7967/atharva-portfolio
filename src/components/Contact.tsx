@@ -168,6 +168,7 @@ export default function Contact() {
                   href={profileData.socials.resume}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Download Atharva Patil Resume (PDF)"
                   className="text-sm font-medium text-white hover:text-sky-300 transition-colors block"
                 >
                   View / Download Resume (PDF)

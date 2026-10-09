@@ -58,7 +58,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-white/[0.03] text-slate-400 hover:text-sky-400 hover:bg-white/[0.08] transition-colors"
-              aria-label="Resume"
+              aria-label="Download Atharva Patil Resume (PDF)"
               title="Resume (PDF)"
             >
               <FileText className="w-4 h-4" />
