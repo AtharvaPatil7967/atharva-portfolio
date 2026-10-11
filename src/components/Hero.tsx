@@ -135,9 +135,9 @@ export default function Hero() {
                   <span>Competition</span>
                 </div>
                 <div className="text-lg font-bold text-emerald-400 font-mono">
-                  4 Honors
+                  2 Podiums
                 </div>
-                <div className="text-[11px] text-slate-500">2x 1st, 2x 2nd Place</div>
+                <div className="text-[11px] text-slate-500">2nd &amp; 3rd Place</div>
               </div>
 
               <div className="col-span-2 sm:col-span-1 p-3 rounded-xl bg-white/[0.03] border border-white/[0.07] backdrop-blur-sm hover:border-indigo-500/30 transition-all duration-200">

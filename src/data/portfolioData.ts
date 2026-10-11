@@ -379,48 +379,102 @@ export const projectsData: Project[] = [
 ];
 
 /* ==========================================================================
-   ACHIEVEMENTS DATA
+   ACHIEVEMENTS, COMPETITIONS & EXPERIENCE DATA
    ========================================================================== */
 export const achievementsData: Achievement[] = [
   {
-    id: 'hackx-2025',
-    title: 'HackX',
-    position: '1st Place',
-    organizer: 'XDE Studios',
-    date: 'September 2025',
-    highlight: 'Grand Winner',
+    id: 'innoverse-2025',
+    title: 'INNOVERSE: Build the Future',
+    category: 'Awards & Project Competitions',
+    awardOrStatus: '2nd Place',
+    statusBadge: 'Podium Winner',
+    organizer: 'IEEE Student Branch, MMCOE',
+    date: '11 October 2025',
+    highlight: '2nd Place',
     description:
-      'Secured 1st place for engineering an innovative technological solution addressing complex problem constraints within an intensive hackathon environment.',
-  },
-  {
-    id: 'insight-innovator-2025',
-    title: 'Insight Innovator',
-    position: '1st Place',
-    organizer: 'Sri Balaji University Pune',
-    date: 'April 2025',
-    highlight: 'Winner',
-    description:
-      'Awarded 1st place in a competitive analytics and innovation event, recognized for data-driven modeling, insight depth, and presentation clarity.',
-  },
-  {
-    id: 'burst-n-storm-2025',
-    title: 'Burst n Storm',
+      'Secured Second Place at INNOVERSE: Build the Future for Krishi Mitra AI, an AI-powered agriculture project focused on crop disease detection and agricultural assistance.',
+    associatedProject: {
+      name: 'Krishi Mitra AI',
+      projectId: 'krishi-mitra-ai',
+    },
+    emphasisLevel: 'highest',
+    iconType: 'trophy',
     position: '2nd Place',
-    organizer: 'COEP Technical University, Pune',
-    date: 'October 2025',
-    highlight: 'Runner Up',
-    description:
-      'Clinched 2nd place in high-intensity technical competition hosted by COEP Technical University, Pune.',
   },
   {
-    id: 'dashboard-derby',
-    title: 'Dashboard Derby',
-    position: '2nd Place',
-    organizer: 'COEP Technical University, Pune',
-    date: undefined, // Preserved without inventing dates
-    highlight: 'Runner Up',
+    id: 'mindstorm-2k25',
+    title: 'Mindstorm 2K25 — Project Competition',
+    category: 'Awards & Project Competitions',
+    awardOrStatus: '3rd Rank',
+    statusBadge: 'Ranked Podium',
+    organizer: 'Mindstorm 2K25, MMCOE',
+    date: '26 April 2025',
+    highlight: '3rd Rank',
     description:
-      'Earned 2nd place for crafting a high-impact, insightful analytical dashboard focusing on user experience, storytelling, and metric precision.',
+      'Secured 3rd rank in the Mindstorm project competition with the Intelligent Customer Segmentation Dashboard, an analytics project designed to support data-driven customer segmentation.',
+    associatedProject: {
+      name: 'Intelligent Customer Segmentation Dashboard',
+      projectId: 'customer-segmentation-dashboard',
+    },
+    emphasisLevel: 'highest',
+    iconType: 'medal',
+    position: '3rd Rank',
+  },
+  {
+    id: 'mcad-solution-internship',
+    title: 'MCAD Solution',
+    category: 'Industry Experience',
+    role: 'AI/ML Developer Intern — CAD Automation',
+    awardOrStatus: 'Internship Completed',
+    statusBadge: 'Internship Completed',
+    organizer: 'MCAD Solution',
+    duration: '5 January 2026 – 5 March 2026',
+    date: '5 Jan 2026 – 5 Mar 2026',
+    highlight: 'Internship Completed',
+    description:
+      'Completed a two-month internship at MCAD Solution, contributing to an AI-driven CAD workflow automation system involving the conversion of 3D models into 2D drawings and the generation of engineering dimensions according to industry standards and tolerances.',
+    technologies: [
+      'AI/ML Application Development',
+      'CAD Workflow Automation',
+      'CATIA V5',
+      'SolidWorks',
+      'Engineering Drawing Generation',
+      'Dimensional Accuracy & Tolerances',
+    ],
+    emphasisLevel: 'second',
+    iconType: 'briefcase',
+    position: 'Internship Completed',
+  },
+  {
+    id: 'sih-2025',
+    title: 'Smart India Hackathon 2025',
+    category: 'Hackathons & Participation',
+    awardOrStatus: 'Internal Hackathon Participant',
+    statusBadge: 'Participant',
+    organizer: "Marathwada Mitra Mandal's College of Engineering",
+    date: '19–20 September 2025',
+    highlight: 'Participant',
+    description:
+      'Participated in the internal hackathon conducted for the 8th edition of Smart India Hackathon 2025 at MMCOE, Pune.',
+    emphasisLevel: 'supporting',
+    iconType: 'code',
+    position: 'Participant',
+  },
+  {
+    id: 'innohack-2',
+    title: 'InnoHack 2.0',
+    category: 'Hackathons & Participation',
+    awardOrStatus: 'Participant',
+    statusBadge: 'Participant',
+    organizer: 'Vishwakarma Institute of Technology (VIT), Pune',
+    venue: 'VIT College, Pune',
+    date: '30–31 July 2025',
+    highlight: 'Participant',
+    description:
+      'Participated in InnoHack 2.0, held at VIT College, Pune, on 30–31 July 2025.',
+    emphasisLevel: 'supporting',
+    iconType: 'code',
+    position: 'Participant',
   },
 ];
 

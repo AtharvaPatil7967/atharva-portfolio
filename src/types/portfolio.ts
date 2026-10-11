@@ -31,14 +31,32 @@ export interface SkillCategory {
   icon: string;
 }
 
+export type AchievementCategory =
+  | 'Awards & Project Competitions'
+  | 'Industry Experience'
+  | 'Hackathons & Participation';
+
 export interface Achievement {
   id: string;
   title: string;
-  position: string;
+  category: AchievementCategory;
+  awardOrStatus: string;
+  statusBadge?: string;
   organizer: string;
+  venue?: string;
   date?: string;
+  duration?: string;
+  role?: string;
+  description: string;
   highlight?: string;
-  description?: string;
+  associatedProject?: {
+    name: string;
+    projectId?: string;
+  };
+  technologies?: string[];
+  emphasisLevel: 'highest' | 'second' | 'supporting';
+  iconType: 'trophy' | 'medal' | 'briefcase' | 'code' | 'sparkles';
+  position?: string;
 }
 
 export interface Education {

@@ -107,7 +107,10 @@ export default function Projects() {
           {filteredProjects.map((project, idx) => (
             <RevealOnScroll key={project.id} direction="up" delayMs={idx * 50}>
               <TiltCard maxTiltDeg={2.5} className="h-full rounded-2xl">
-                <article className="h-full rounded-2xl bg-[#0a0e19]/90 border border-white/[0.08] hover:border-sky-500/35 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/5 group relative backdrop-blur-md">
+                <article
+                  id={project.id}
+                  className="h-full rounded-2xl bg-[#0a0e19]/90 border border-white/[0.08] hover:border-sky-500/35 p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/5 group relative backdrop-blur-md scroll-mt-28"
+                >
                   {/* Top Meta & Badges */}
                   <div>
                     <div className="flex items-center justify-between gap-3 mb-4">
